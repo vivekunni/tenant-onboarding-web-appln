@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Tenant Onboarding Page</title>
+</head>
+<body ng-app="demo">
+ <br><br><br>
+<!-- <marquee  direction = "right"><font size = "6"><b>Alpha Grid Tenant Onboarding - Self Service UI</b></font><br /></marquee>
+--> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://jira-az.crd.com:8443/s/xgs474/814001/f8b1e87c87879ab516062718282ab78b/_/jira-logo-scaled.png" alt="Charles River Development" width="500" height="80">
+ 
+<div class="container" ng-controller="UserController">
+<form name="tenant">
+    <div class="row">       
+    <br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>JIRA TICKET # </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="jira" type="text" required size=25  ng-model="userDto.jiraID" class="input-sm spacing"> Eg. CPE-xxx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>REQUESTOR's EMAIL</label>&nbsp;&nbsp; <input id="email" type="email" required size=25  ng-model="userDto.reqEmail" class="input-sm spacing"><br><br><br>
+<!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>REQUESTOR's EMAIL</label>&nbsp;&nbsp; <input id="email" type="email" required size=25  ng-model="userDto.reqEmail" class="input-sm spacing"><br><br><br>
+-->        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>APPLICATION</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="appln" type="text" required size=25  ng-model="userDto.appln" class="input-sm spacing">Eg. Alpha Portal, Alpha IBOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>ENVIRONMENT </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="env"  type="text" required size=25  ng-model="userDto.env" class="input-sm spacing">Eg: eng, dev, qa, perf, d1 <br><br><br>
+        <!--<div ng-controller="selectController">
+             <label>ENVIRONMENT    </label> <select ng-change='onCategoryChange()' ng-model="userDto.env" ng-options="category.name for category in categories">
+                                            <option value="">--CHOOSE--</option>
+        									<option value="eng">ENGINEERING</option>
+        									<option value="dev">DEVELOPMENT</option>
+        									<option value="qa">QA</option>
+        									<option value="perf">PERFORMANCE</option>
+        									<option value="d1">NON-PROD</option>
+    									 </select><br><br>
+    	</div>-->
+<!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>ENVIRONMENT </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="env"  type="text" required size=25  ng-model="userDto.env" class="input-sm spacing">Eg: eng, dev, qa, perf, d1, prod <br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>TENANT ID </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="tenantID" type="text" required size=25 ng-model="userDto.clientTenantID" class="input-sm spacing">Eg: aptl-z1-001<br><br><br>
+-->        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>SERVICE PRINCIPAL </label>&nbsp;&nbsp;&nbsp;&nbsp;<input id="spn" type="text" required size=25 ng-model="userDto.spnName" class="input-sm spacing">Eg: agd-<%tenant-id%>-akv-ro-spn &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>TENANT ID </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="tenantID" type="text" required size=25 ng-model="userDto.clientTenantID" class="input-sm spacing">Eg: aptl-z1-001 <br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>AD SVC </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id="ad_svc" type="text" required maxlength="20" size=25 ng-model="userDto.adSvc" class="input-sm spacing">Eg: For d1: agd-<%tenant-id%>-svc & for others: srv_crddev_<%tenantid_with_no_hyphens%><br><br><br>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<marquee><font size = "3"><label>NOTE: </label>&nbsp;&nbsp;All above fields are mandatory. For more details, please click on the link <a href = "https://confluence-az.crd.com:8443/display/ACN/Tenant+Onboarding+-+Environment+Shell"><label> Tenant Onboarding Confluence Documentation</label></a></marquee> <br><br><br>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  ng-click="saveUser()" class="btn btn-sm btn-info">Submit</button>
+        <button type="button" class="btn btn-sm btn-danger" onclick="document.getElementById('jira').value = '';document.getElementById('email').value = '';document.getElementById('appln').value = '';document.getElementById('env').value = '';document.getElementById('tenantID').value = '';document.getElementById('spn').value = '';document.getElementById('ad_svc').value = ''">Clear</button>
+        <!--<b><p><a href="https://confluence-az.crd.com:8443/display/ACN/Tenant+Onboarding+-+Environment+Shell">Visit Tenant Onboarding Doc!</a></p></b> -->      
+    </div>
+   
+</form> 
+</div>
+<script>
+    var app=angular.module('demo',['jcs-autoValidate']);
+</script>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="lib/jcs-auto-validate.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/UserController.js"></script>
+<script src="js/app/UserService.js"></script>
+<script src="js/app/successMessagebool.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+</html>
